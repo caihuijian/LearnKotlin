@@ -1,4 +1,3 @@
-//package com.example.lib.d01start
 package com.example.lib.d01start
 
 // 将Kotlin转为Java步骤:

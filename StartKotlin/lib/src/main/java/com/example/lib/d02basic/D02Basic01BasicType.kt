@@ -21,27 +21,147 @@ const val NUMBER3 = 0b0101
 
 
 fun main() {
-//    // 基本类型
-//    basicType()
-//    // 字面常量
-//    valVariable()
-//    // 显示转换
-//    explicitConvert()
-//    // 运算
-//    calculate()
-//    // 数字比较
-//    numberCompare()
-//    // 字符
-//    char()
-//    // 布尔
-//    bool();
+    // 基本类型
+    basicType()
+    // 字面常量
+    valVariable()
+    // 显示转换
+    explicitConvert()
+    // 运算
+    calculate()
+    // 数字比较
+    numberCompare()
+    // 字符
+    char()
+    // 布尔
+    bool();
     // 数组
     array()
+    // ⽆符号类型 跳过 因为他们似乎还不稳定
+    // String
+    string()
+}
+
+fun string() {
+    val string1: String = "This is String"
+    // 利用for循环 输出字符串
+    for (char in string1) {
+        println(char)
+    }
+    println(string1)
+    val s = "abc" + 1
+    // 字符串拼接
+    println(s + "def")
+    // 与上面等价
+    println("${s}def")
+
+    val i = 10
+    // 字符串模板
+    println("i = $i")
+
+    val s2 = "abc"
+    // ⽤花括号括起来的任意表达式(花括号内部是一个表达式)
+    println("$s2.length is ${s2.length}")
+
+    val beef = "beef"
+    val price = "99"
+    println("$beef is $$price")
 }
 
 fun array() {
-    TODO("Not yet implemented")
+    val arrayOfInt: IntArray = intArrayOf(1, 3, 5, 7, 9)
+    // 创建⼀个 Array<String> 初始化为 ["0", "1", "3", "4", "5"]
+    val asc = Array(5) { element -> element }
+    // 利用数组自带的iterator遍历
+    asc.forEach { println(it) }
+
+
+    /**整型Int的数组*/
+
+    arrayOfInt.forEach { println(it) }
+    /**字符Char类型的数组*/
+    val arrayOfChar: CharArray = charArrayOf('H', 'e', 'l', 'l', 'o', 'W', 'o', 'r', 'l', 'd')
+    arrayOfChar.forEach { println(it) }
+    /**字符串String数组*/
+    val arrayOfString: Array<String> = arrayOf("Hello", "World")
+    for (element in arrayOfString) {
+        println(element)
+    }
+
+    // ⼤⼩为 5、 值为 [0, 0, 0, 0, 0] 的整型数组
+    val arr1 = IntArray(5)
+    arr1.forEach { print("$it ") }
+    println()
+    // 例如： ⽤常量初始化数组中的值
+    // ⼤⼩为 5、 值为 [42, 42, 42, 42, 42] 的整型数组
+    val arr2 = IntArray(5) { 42 }
+    arr2.forEach { print("$it ") }
+    println()
+    // 例如： 使⽤ lambda 表达式初始化数组中的值
+    // ⼤⼩为 5、 值为 [0, 1, 2, 3, 4] 的整型数组（值初始化为其索引值）
+    val arr3 = IntArray(5) { it * 1 }
+    arr3.forEach { print("$it ") }
+    println()
 }
+
+//三个引号"""括起来的字符串 内部没有转义并且可以包含换⾏以及任何其他字符
+val definitionArray =
+        """
+public class Array<T> {
+    /**
+     * 数组的定义类 摘自Array.kt
+     *
+     *
+     * Creates a new array with the specified [size], where each element is calculated by calling the specified
+     * [init] function.
+     * 创建一个指定长度的新数组 每一个元素可以被指定的init方法计算
+     *
+     * The function [init] is called for each array element sequentially starting from the first one.
+     * It should return the value for an array element given its index.
+     * init方法被每一个元素从第一个元素开始依次调用 它应该返回元素下标的值
+     */
+    public inline constructor(size: Int, init: (Int) -> T)
+
+    /**
+     * get方法 返回指定下标的元素
+     * Returns the array element at the specified [index]. This method can be called using the
+     * index operator.
+     * ```
+     * value = arr[index]
+     * ```
+     *
+     * If the [index] is out of bounds of this array, throws an [IndexOutOfBoundsException] except in Kotlin/JS
+     * where the behavior is unspecified.
+     */
+    public operator fun get(index: Int): T
+
+    /**
+     * set方法
+     * Sets the array element at the specified [index] to the specified [value]. This method can
+     * be called using the index operator.
+     * ```
+     * arr[index] = value
+     * ```
+     *
+     * If the [index] is out of bounds of this array, throws an [IndexOutOfBoundsException] except in Kotlin/JS
+     * where the behavior is unspecified.
+     */
+    public operator fun set(index: Int, value: T): Unit
+
+    /**
+     * 返回数组长度
+     * Returns the number of elements in the array.
+     */
+    public val size: Int
+
+    /**
+     * 创建用于遍历数组的迭代器
+     * Creates an [Iterator] for iterating over the elements of the array.
+     */
+    public operator fun iterator(): Iterator<T>
+}
+"""
+
 
 fun bool() {
     val a = true
@@ -259,7 +379,7 @@ fun basicType() {
     // printDouble(f) // 错误： 类型不匹配
 }
 
-class D02Basic01 {
+class D02Basic01BasicType {
 
 }
 

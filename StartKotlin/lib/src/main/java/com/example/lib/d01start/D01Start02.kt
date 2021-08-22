@@ -3,34 +3,36 @@ package com.example.lib.d01start
 import java.lang.NumberFormatException
 
 fun main() {
-//    // 变量
-//    variable()
-//    // string 模板
-//    stringTemplate()
-//    // 条件表达式
-//    condition()
-//    // 空值检测
-//    nullCheck()
-//    // 类型检测与自动类型转换
-//    typeCheck();
-//    // 使用For循环
-//    useFor();
-//    // 使用while循环
+    // 变量
+    variable()
+    // string 模板
+    stringTemplate()
+    // 条件表达式
+    condition()
+    // 空值检测
+    nullCheck()
+    // 类型检测与自动类型转换
+    typeCheck();
+    // 使用For循环
+    useFor();
+    // 使用while循环
     useWhile();
     // 使用when表达式
-    useWhen()
+    //    TODO("学到了开始章节的when表达式 后面发现学习顺序不对 应该从基础一章开始学习")
+    val param = 1.2
+    useWhen(param)
 }
 
 // kotlin 版本的switch case
-fun useWhen() {
-//    TODO("here")
-//    when (obj) {
-//        1 -> "One"
-//        "Hello" -> "Greeting"
-//        is Long -> "Long"
-//        !is String -> "Not a string"
-//        else -> "Unknown"
-//    }
+fun useWhen(obj: Any) {
+
+    when (obj) {
+        1 -> println("One")
+        "Hello" -> println("Greeting")
+        is Long -> println("Long")
+        !is String -> println("Not a string")
+        else -> println("Unknown")
+    }
 }
 
 fun useWhile() {
