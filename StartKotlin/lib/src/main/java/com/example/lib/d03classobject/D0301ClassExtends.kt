@@ -63,25 +63,6 @@ class D0301ClassExtends public constructor(parameter: String) {// // 从 Any 隐
     // 在类头中把超类型放到冒号之后
     class Student(firstName: String, lastName: String, age: Int) : Person(firstName, lastName, age)
 
-
-    open class View(){
-        constructor(ctx: String) : this()
-        constructor(ctx: String,attrs:String) : this(ctx)
-    }
-
-    // 如果派⽣类有⼀个主构造函数，其基类可以（并且必须）⽤派⽣类主构造函数的参数就地初始化。
-    class MyView1 : View {
-        constructor(ctx: String) : super(ctx)
-        constructor(ctx: String, attrs: String) : super(ctx, attrs)
-    }
-
-    class MyView2 : View {
-        constructor(ctx: String) : super(ctx)
-        constructor(ctx: String, attrs: String) : super(ctx, attrs)
-    }
-    // 如果派⽣类没有主构造函数，那么每个次构造函数必须使⽤ super 关键字初始化其基类型，或委托给另⼀个构
-    // 造函数做到这⼀点。注意，在这种情况下，不同的次构造函数可以调⽤基类型的不同的构造函数：
-
     // Any 有三个⽅法：equals() 、hashCode() 与 toString() 。因此，为所有 Kotlin 类都定义了这些⽅法。
     // 从这里也可证明任何类的基类是Any
     // 默认情况下，Kotlin 类是最终（final）的：它们不能被继承。要使⼀个类可继承，请⽤ open 关键字标记它
