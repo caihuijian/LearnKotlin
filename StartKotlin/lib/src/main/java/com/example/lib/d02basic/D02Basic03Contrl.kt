@@ -156,10 +156,6 @@ fun expressionAsCondition2(x: Int) {
     }
 }
 
-fun parseInt(s: String): Int {
-    TODO("Not yet implemented")
-}
-
 fun multiCondition(x: Any) {
     when (x) {
         // when 表达式也可以将条件合并
