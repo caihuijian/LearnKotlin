@@ -6,13 +6,18 @@ import java.util.Iterator;
 import java.util.List;
 
 public class JavaCode {
+
+    static class Parent{
+         final int  x = 10;
+    }
+    static class Child extends Parent{
+        public int  x = 100;
+    }
+
     public static void main(String[] args) {
 
-        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList("aaa","bbb","ccc"));
-        Iterator iterator = arrayList.iterator();
-        while (iterator.hasNext()){
-            System.out.println(iterator.next());
-        }
+        Child child = new Child();
+        System.out.println(child.x);
     }
 
 }
