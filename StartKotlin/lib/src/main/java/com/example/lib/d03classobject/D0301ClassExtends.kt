@@ -281,7 +281,7 @@ class D0301ClassExtends public constructor(parameter: String) {
     open class CompanionObject {
         companion object {
             // 相当于静态变量
-            private const val PATH = "ABC"
+            private const val PATH = "ABC"// 测试代码 不要运行 会找不到文件
             // 相当于静态方法
             fun load() = File(PATH).readBytes()
             fun printStr() = run {
