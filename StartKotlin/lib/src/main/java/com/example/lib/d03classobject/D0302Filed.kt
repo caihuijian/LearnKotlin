@@ -3,22 +3,53 @@ package com.example.lib.d03classobject
 import java.util.*
 import javax.xml.ws.Action
 
+// 10 编译期常量
+// 与编译期相对的是运行期 编译期常量就代表在编译时就存在的常量
+// 编译期常量可以声明的位置有:1 顶层 2 object声明 3  companion object伴生对象
+
+// 以下的声明用Java表示为
+// public static final String CONST_VARIABLE =
+const val CONST_VARIABLE1: String = "CONST_VARIABLE1"// 编译期常量这里声明在顶层
+
+object DataProviderManager {
+    // 关于object声明的章节后面详说
+    const val CONST_VARIABLE3: String = "CONST_VARIABLE3"// 编译期常量这里声明在object声明
+}
+
 fun main() {
-    val add = D0302Filed.Address()
-    // 测试自定义get start
-    println(add.isEmpty)
-    add.size = 0
-    println(add.isEmpty)
-    // 测试自定义get end
+//    val add = D0302Filed.Address()
+//    // 测试自定义get start
+//    println(add.isEmpty)
+//    add.size = 0
+//    println(add.isEmpty)
+//    // 测试自定义get end
+//
+//    // 测试自定义set start
+//    add.stringRepresentation = "AccAbb"
+//    println(add.stringRepresentation)
+//    // 测试自定义set end
 
-    // 测试自定义set start
-    add.stringRepresentation = "AccAbb"
-    println(add.stringRepresentation)
-    // 测试自定义set end
-
+    // 测试延迟初始化
+    val filed = D0302Filed()
 }
 
 class D0302Filed {
+    constructor() {
+        // 12 判断延迟初始化与否的变量 isInitialized
+        // 此检测方法仅可检测位于同⼀个类型内或者位于其中⼀个外围类型中 或者位于相同⽂件
+        // 的顶层的属性
+        // 是否调用setup 关系到lateInitString.isInitialized的返回值
+        // this.setup()
+        if (this::lateInitString.isInitialized) {
+            println(this.lateInitString)
+        } else {
+            println("lateInitString is not initialized")
+        }
+    }
+
+    companion object {
+        const val CONST_VARIABLE2: String = "CONST_VARIABLE2"// 编译期常量这里声明在伴生对象
+    }
 
     class Address {
         // 1 声明属性
@@ -89,7 +120,10 @@ class D0302Filed {
             }
             get() = field
 
-        // 9 TODO 幕后属性
+        // 9 幕后属性
+        // 个人觉得这是一种非常奇怪的写法 用两个变量一起表示一个变量
+        // 将以下划线开头的变量声明为私有的 在声明一个public的同名的去掉开头下划线的变量
+        // public的变量内部get set操作的是private的变量
         private var _table: Map<String, Int>? = null
         public val table: Map<String, Int>
             get() {
@@ -98,7 +132,14 @@ class D0302Filed {
                 }
                 return _table ?: throw AssertionError("Set to null by another thread")
             }
-
     }
 
+    // 11 变量延迟初始化
+    // ⼀般地，属性声明为⾮空类型必须在构造函数中初始化。然⽽，这经常不方便。例如：属性可以通过依赖注⼊来初
+    // 始化，或者在单元测试的 setup ⽅法中初始化。这种情况下，你不能在构造函数内提供⼀个⾮空初始器。但你
+    // 仍然想在类体中引⽤该属性时避免空检测。为处理这种情况，你可以⽤ lateinit 修饰符标记该属性
+    lateinit var lateInitString: String
+    fun setup() {
+        lateInitString = "late"
+    }
 }
