@@ -1,26 +1,120 @@
 package com.example.lib.d01start
 
 import java.lang.NumberFormatException
+import java.util.*
 
 fun main() {
-    // 变量
+    // 3 变量
     variable()
-    // string 模板
+    // 4 注释 略
+    // 5 string 模板
     stringTemplate()
-    // 条件表达式
+    // 6 条件表达式
     condition()
-    // 空值检测
+    // 7 空值检测
     nullCheck()
-    // 类型检测与自动类型转换
+    // 8 类型检测与自动类型转换
     typeCheck();
-    // 使用For循环
+    // 9 使用For循环
     useFor();
-    // 使用while循环
+    // 10 使用while循环
     useWhile();
-    // 使用when表达式
-    //    TODO("学到了开始章节的when表达式 后面发现学习顺序不对 应该从基础一章开始学习")
+    // 11 使用when表达式
     val param = 1.2
     useWhen(param)
+    // 12 使用区间
+    useRange(8)
+    useRange(14)
+    useRange2()
+    useRangeTravels()
+    // 13 集合
+    useCollection()
+    // 14 创建类
+    val person = Person("zhangsan", 25)
+    person.printPerson()
+}
+
+class Person constructor(name: String, age: Int) {
+    val mName = name
+    val mAge = age
+    fun printPerson() {
+        println("name is $mName, age is $mAge")
+    }
+}
+
+
+fun useCollection() {
+    val list = listOf("a", "b", "c", "orange")
+    // 第一种遍历
+    for (item in list) {
+        println(item)
+    }
+
+    // 第二种遍历
+    list.forEach { println(it) }
+
+    // 第三种遍历
+    for (index in list.indices) {
+        println(list[index])
+    }
+
+    // switch case
+    when {
+        "orange" in list -> println("juicy")
+        "apple" in list -> println("apple is fine too")
+    }
+
+    // 使用 lambda 表达式来过滤（filter）与映射（map）集合：
+    val fruits = listOf("banana", "avocado", "apple", "kiwifruit", "aaa")
+    fruits
+            .filter { it.startsWith("a") } // 过了所有以a开头的集合
+            .sortedBy { it } // 排序
+            .map { it.uppercase(Locale.getDefault()) }// 转化为大写
+            .forEach { println(it) } // 输出
+}
+
+fun useRangeTravels() {
+    // 输出1-5
+    for (x: Int in 1..5) {
+        print(x)
+    }
+    println()
+    // 输出13579
+    for (x in 1..10 step 2) {
+        print(x)
+    }
+    println()
+    // 降序输出
+    for (x in 9 downTo 0 step 3) {
+        print(x)
+    }
+}
+
+fun useRange2() {
+    // 创建 String数组
+    val list = listOf("a", "b", "c")
+
+    if (-1 !in 0..list.lastIndex) {
+        println("-1 is out of range")
+    }
+    println("list.size = ${list.size}")
+    println("list.indices = ${list.indices}")
+    if (list.size !in list.indices) {
+        println("list size is out of valid list indices range, too")
+    }
+
+    if (2 in list.indices) {
+        println("2 is in valid list indices range")
+    }
+}
+
+// 使用 in 运算符来检测某个数字是否在指定区间内
+fun useRange(i: Int) {
+    if (i in 1..10) {
+        println("fits in range")
+    } else {
+        println("not in range")
+    }
 }
 
 // kotlin 版本的switch case
@@ -82,7 +176,7 @@ fun typeCheck() {
     fun printLength1(obj: Any) {
         // 打印某个对象的字符串长度
         // ${getStringLength(obj) ?: "... err, not a string"} 花括号内是一个表达式
-        // ?: 看起来是java三元操作符的简写 ?:前面的如果不是空 直接使用这个值 否则使用?:后面的值
+        // ?: 看起来是java三元操作符的简写 实际是个判空操作符 ?:前面的如果不是空 直接使用这个值 否则使用?:后面的值
         println(" $obj string length is ${getStringLength(obj) ?: "... err, not a string"} ")
     }
 
@@ -91,7 +185,7 @@ fun typeCheck() {
     printLength1(listOf(Any()))
 }
 
-fun getStringLength(obj: Any): Int? {// Any代表任意类型
+fun getStringLength(obj: Any): Int? {// Any代表任意类型 相当于Java的Object
     // is 相当于Java中的instanceof
     if (obj is String) {
         // `obj` 在该条件分支内自动转换成 `String`类型
@@ -147,6 +241,7 @@ fun maxOf2(a: Int, b: Int) = if (a > b) a else b
 
 
 // const 代表运行时常量
+// 这里是顶层
 // 相当于 public static final double MY_CONSTANT
 const val MY_CONSTANT = 3.1415
 
@@ -175,8 +270,8 @@ fun variable() {
 
     // val 代表运行时常量
     // 相当于 final double PI
-    val PI = 3.14
-    println(PI)
+    val pi = 3.14
+    println(pi)
     println(MY_CONSTANT)
 }
 

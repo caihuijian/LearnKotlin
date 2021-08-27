@@ -1,5 +1,6 @@
 package com.example.lib.d01start
 
+// 0 写在前面的话
 // 将Kotlin转为Java步骤:
 // Tools → Kotlin icon Kotlin → Show Kotlin Bytecode
 // Decompile
@@ -12,10 +13,11 @@ package com.example.lib.d01start
 // Android Studio 会检测到剪切板是Java Code 询问你是否将Java代码转换为Kotlin代码
 // 点击确认 可以直接转换
 
-// kotlin程序的入口 与普通的Java文件不同 写在类外部
+// 1 kotlin程序的入口
+// 与普通的Java文件不同 写在类外部
 fun main() {
     println("Hello World")
-    // Kotlin方法的学习
+    // 2 Kotlin函数的学习
     method();
 }
 
