@@ -3,34 +3,34 @@ package com.example.lib.d03classobject
 fun main() {
 // 接口委托的原理
 // by关键字后面的类 实际上会有一个对象实例存储在委托类内部 编译器会将当前类的所有方法实现出来, 在实现内部调用委托对象的实例的对应方法
-//    // 1 接口的委托
-//    // 有点像策略模式 初始化的时候 传入不同的接口实现 相当于传入不同的策略
-//    // 一个类实现多个接口,并委托给不同的接口实现类
-//    // 只有接口可以委托 类不行
-//    val b = BaseImpl2(10)
-//    val d = BaseImpl4(10)
-//    val derived1 = Derived2(b,d)
-//    derived1.print()
-//    derived1.println()
-//
-//    val c = BaseImpl3(10)
-//    val derived2 = Derived2(c,d)
-//    derived2.print()
-//    derived2.println()
-//
-//    // 2 覆盖由委托实现的接口
-//    val e = BaseImpl5(10)
-//    Derived3(e).printMessage()
-//    Derived3(e).printMessageLine()
-//
-//    // 3 易错点
-//    val b = BaseImpl6(10)
-//    val derived = Derived4(b)
-//    // 注意下面的输出不同
-//    // 此print调用的是BaseImpl6中的print 因此message使用的也是BaseImpl6中的message
-//    derived.print()
-//    // 以下打印的是真实Derived4实例中的message变量
-//    println(derived.message)
+    // 1 接口的委托
+    // 有点像策略模式 初始化的时候 传入不同的接口实现 相当于传入不同的策略
+    // 一个类实现多个接口,并委托给不同的接口实现类
+    // 只有接口可以委托 类不行
+    val b = BaseImpl2(10)
+    val d = BaseImpl4(10)
+    val derived1 = Derived2(b, d)
+    derived1.print()
+    derived1.println()
+
+    val c = BaseImpl3(10)
+    val derived2 = Derived2(c, d)
+    derived2.print()
+    derived2.println()
+
+    // 2 覆盖由委托实现的接口
+    val e = BaseImpl5(10)
+    Derived3(e).printMessage()
+    Derived3(e).printMessageLine()
+
+    // 3 易错点
+    val f = BaseImpl6(10)
+    val derived = Derived4(f)
+    // 注意下面的输出不同
+    // 此print调用的是BaseImpl6中的print 因此message使用的也是BaseImpl6中的message
+    derived.print()
+    // 以下打印的是真实Derived4实例中的message变量
+    println(derived.message)
 }
 
 // 3 start

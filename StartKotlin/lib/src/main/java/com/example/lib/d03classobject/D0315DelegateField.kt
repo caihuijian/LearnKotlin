@@ -3,7 +3,6 @@ package com.example.lib.d03classobject
 import java.util.*
 import kotlin.properties.Delegates
 import kotlin.properties.ReadOnlyProperty
-import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
 // 属性委托
