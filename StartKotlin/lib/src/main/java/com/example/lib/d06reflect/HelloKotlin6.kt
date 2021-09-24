@@ -1,5 +1,8 @@
 package com.example.lib.d06reflect
 
+/**
+ * 属性引用作为方法使用
+ */
 fun main() {
     // 1 属性引用作为方法使用
     val values = listOf("a", "ab", "abc")
@@ -14,7 +17,8 @@ fun main() {
     println(values.map(String::length))
     println("=======1 end========")
 
-    // 要想访问一个类中的成员属性 需要使用全限定名称(需要加上具体类名 如这里的MyClass)
+    // 要想访问一个类中的成员属性 (有接收者的属性)
+    // 需要使用全限定名称(需要加上具体类名 如这里的MyClass)
     val x = MyClass::x
     println(x.get(MyClass(10)))
     println(x.get(MyClass()))

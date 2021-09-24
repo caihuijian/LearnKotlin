@@ -41,12 +41,14 @@ class HelloKotlin3 {
 
 /**
  * 总结
- * 函数引用 即传入函数作为参数
+ * 函数引用
+ * 可以传入函数作为参数
  * 函数类型如果能从上下文推断 那么支持重载
  * ::multiplyBy3表示函数类型 (Int)->Int 或者 (String) ->Int的值
  * 如果该方法不是来自顶层的方法 而是某个类的普通方法或者扩展方法 需要加上类的索引
  */
 val myRef: (Int) -> Int = ::multiplyBy3
 val myRef2: (String) -> Int = ::multiplyBy3
-val myRef3: String.(Int) -> Char = String::get // 注意类比 声明和使用
-val myRef4: HelloKotlin3.(String) -> Int = HelloKotlin3::instanceMethod
+val myRef3: String.(Int) -> Char = String::get
+val myRef4: HelloKotlin3.(String) -> Int =
+    HelloKotlin3::instanceMethod // 如果该方法不是来自顶层的方法 而是某个类的普通方法或者扩展方法 需要加上类的索引

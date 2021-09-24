@@ -1,11 +1,10 @@
 package com.example.lib.d06reflect
 
-import java.util.*
 
-// 获取Java class和Kotlin class的方法
+// 获取Java class和Kotlin KClass的方法
 
 fun main() {
-    // 获取Kotlin class
+    // 获取Kotlin KClass
     val c = String::class
     println(c)
     // 获取Java class

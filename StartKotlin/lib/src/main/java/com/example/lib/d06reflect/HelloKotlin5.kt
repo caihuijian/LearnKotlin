@@ -1,6 +1,5 @@
 package com.example.lib.d06reflect
 
-import kotlin.reflect.KMutableProperty
 
 /**
  * 属性引用(Method Reference)
@@ -17,7 +16,7 @@ var age2 = 5
 fun main() {
 
     // 首先我们需要了解一个继承结构 KProperty0继承自KProperty KProperty继承自KCallable
-    // KClass和KProperty有点像
+    // KClass和KProperty有点像 只不过KClass是Kotlin对应Java的Class  KProperty基本是Kotlin对应Java的Field
     /**
      * ::age代表类型KProperty<Int>的属性对象实例 我们可以通过get()获取其值 通过name获取其名字
      * KProperty：Represents a property, such as a named val or var declaration. Instances of this class are obtainable by the :: operator.
