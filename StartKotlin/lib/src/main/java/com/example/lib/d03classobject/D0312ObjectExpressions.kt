@@ -211,6 +211,8 @@ object AppConfig {
     fun setSth() {
         println("set something")
     }
+
+    var a = 1
 }
 
 class D0312ObjectExpressions

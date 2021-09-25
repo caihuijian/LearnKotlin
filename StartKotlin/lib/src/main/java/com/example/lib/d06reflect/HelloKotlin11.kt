@@ -1,11 +1,8 @@
-package com.example.lib.d06reflect
-
 import kotlin.reflect.KClass
 
 /**
- * Java 反射vs Kotlin反射
+ * Java反射和Kotlin反射各种对应关系
  *
- * Java反射和Kotlin反射各种class的对应关系
  * Java   Kotlin
  * Class  KClass
  * Method KFunction
