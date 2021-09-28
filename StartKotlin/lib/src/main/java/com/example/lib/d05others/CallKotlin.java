@@ -13,7 +13,7 @@ public class CallKotlin {
         // 注意 调用成员方法时使用D0509JavaCallKotlin
         D0509JavaCallKotlin aa = new D0509JavaCallKotlin();
         // D0509JavaCallKotlinKt bb = new D0509JavaCallKotlinKt();// 运行时报错 cannot find symbol
-        // 我们无法通过new关键字创建由Kotlin编译器生成的以Kt结尾的类的示例
+        // 我们无法通过new关键字创建由Kotlin编译器生成的以Kt结尾的类的实例
         // 因为在生成的字节码中 没有为以Kt结尾的类生成任何构造方法
         // 反而是对应的没有以Kt结尾的类 是有构造方法的
         aa.nonStaticMethod();

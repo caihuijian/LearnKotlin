@@ -4,14 +4,14 @@ package com.example.lib.d05others
  * Java与Kotlin在数组 上的区别
  * Kotlin中的数组是不变的(相对于协变和逆变) 这一点和Java不同(Java是协变的)
  * 因此 Java的数组设计是有问题的
- * 这意味着 我们无法将Array<String> 赋值给Array<Any> 可以避免运行时异常
+ * 这意味着 我们无法在Kotlin中将Array<String> 赋值给Array<Any> 可以避免运行时异常
  *
- * Kotlin提供了原生类型数组来比卖你自动装修拆箱带来的成本:IntArray,DoubleArray,CharArray...
+ * Kotlin提供了原生类型数组来避免自动装修拆箱带来的成本:IntArray,DoubleArray,CharArray...
  */
 fun main() {
     // 1 对比Java与Kotlin的数组
 //    val objects:Array<Any> = Array<String>(4,{_-> "AA"})//Type mismatch.
-    val objects: Array<Any> = Array<Any>(4, { _ -> "AA" })//Type mismatch.
+    val objects: Array<Any> = Array<Any>(4, { _ -> "AA" })
     objects.forEach { println(it) }
 
     // Array相当于Java里面的ArrayList<xx>

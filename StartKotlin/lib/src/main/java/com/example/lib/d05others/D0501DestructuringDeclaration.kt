@@ -51,9 +51,13 @@ fun main() {
         "...value changed to:${entry.key} ${entry.value}"
     }.forEach { println(it) }
     println("----------------------")
-    // 3.3 mapValues+结构声明 修改value同时遍历map
+    // 3.3 mapValues+解构声明 修改value同时遍历map
     map.mapValues { (_, value) ->
         "$value haha"// 给value加上haha
+    }.forEach { println(it) }
+
+    map.mapValues { (key, value) ->
+        "$key  $value haha"// 给value加上haha
     }.forEach { println(it) }
 
     println("======= 3 end ========")
@@ -63,7 +67,8 @@ fun main() {
     // 给每个元素指定类型
     map.mapValues { (key: String, value: String) -> "$value haha" }.forEach { println(it) }
     // 给整体指定类型
-    map.mapValues { (key, value): Map.Entry<String, String> -> "$value hihi" }.forEach { println(it) }
+    map.mapValues { (key, value): Map.Entry<String, String> -> "$value hihi" }
+        .forEach { println(it) }
     // 也可以省略
     map.mapValues { (key, value) -> "$value enen" }.forEach { println(it) }
 

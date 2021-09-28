@@ -33,7 +33,7 @@ class MyPeople {
         var age3 = 30
 
         // 4 @JvmStatic修饰伴生对象的方法
-        // 在Kotlin中 可以将剧名对象或者伴生对象中定义的函数注解为@JvmStatic 这样编译器会机会再相应对象的类中生成静态（类）方法 也会在在相应的类中生成实例方法
+        // 在Kotlin中 可以将具名对象或者伴生对象中定义的函数注解为@JvmStatic 这样编译器会机会再相应对象的类中生成静态（类）方法 也会在在相应的类中生成实例方法
         // 即 在companion对象中生成test1方法 在MyPeople也生成test1方法 且MyPeople.test1方法内部调用的是companion.test1
         @JvmStatic
         fun test1() {
