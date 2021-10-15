@@ -4,6 +4,8 @@ package com.example.lib.d03classobject
 // 1 对象声明 : object单独使用
 // 2 对象表达式 :object 对象作为参数或者被用于赋值 例如匿名内部类
 // 3 伴生对象: object与companion一起使用 伴生对象的初始化时机与类实例绑定在一起
+// 伴生对象内部的属性和方法就类似于Java里面的静态方法 但是只是类似而已，虽然用法上和静态方法一样但是
+// 只有加上@JvmStatic的属性和方法 才是真的静态属性和静态方法
 
 fun main() {
     // 0 对象声明
