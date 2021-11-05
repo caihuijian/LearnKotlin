@@ -21,9 +21,9 @@ fun main() = runBlocking {
             }
         }
     } catch (ex: TimeoutCancellationException) {
-
+        println("catch exception")
     }
-    withTimeout(1900) {
+    withTimeout(1900) {// 不catch就会抛出异常
         repeat(5) {// 修改为4 就不会抛出TimeoutCancellationException
                 i ->
             println("hello $i")
